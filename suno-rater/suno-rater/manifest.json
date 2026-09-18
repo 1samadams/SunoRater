@@ -1,0 +1,19 @@
+{
+  "manifest_version": 3,
+  "name": "Suno Rater",
+  "version": "0.3.0",
+  "description": "1-10 ratings and short notes on Suno songs. Stored locally, nothing leaves your browser.",
+  "permissions": ["storage", "unlimitedStorage"],
+  "content_scripts": [
+    {
+      "matches": ["https://suno.com/*", "https://*.suno.com/*"],
+      "js": ["content.js"],
+      "css": ["content.css"],
+      "run_at": "document_idle"
+    }
+  ],
+  "action": {
+    "default_title": "Suno Rater",
+    "default_popup": "popup.html"
+  }
+}
