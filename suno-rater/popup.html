@@ -1,0 +1,45 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Suno Rater</title>
+<style>
+  body { margin: 0; min-width: 440px; max-width: 900px; background: #121214; color: #e8e8ea; font: 13px/1.4 system-ui, sans-serif; }
+  header { position: sticky; top: 0; display: flex; gap: 6px; align-items: center; padding: 10px; background: #17171a; border-bottom: 1px solid #2c2c32; }
+  input[type=search], select { background: #0e0e10; color: inherit; border: 1px solid #34343a; border-radius: 6px; padding: 5px 7px; font: inherit; }
+  input[type=search] { flex: 1; min-width: 0; }
+  button { background: #26262c; color: inherit; border: 1px solid #34343a; border-radius: 6px; padding: 5px 8px; font: inherit; cursor: pointer; }
+  button:hover { background: #32323a; }
+  #list { max-height: 480px; overflow: auto; }
+  .row { display: grid; grid-template-columns: 34px 1fr; gap: 10px; padding: 8px 10px; border-bottom: 1px solid #202025; }
+  .chip { height: 22px; border-radius: 11px; color: #fff; font-weight: 700; text-align: center; line-height: 22px; background: #333; }
+  .row a { color: #e8e8ea; text-decoration: none; font-weight: 600; }
+  .row a:hover { text-decoration: underline; }
+  .note { color: #a9a9b2; white-space: pre-wrap; overflow-wrap: anywhere; }
+  .meta { color: #6f6f78; font-size: 11px; }
+  footer { display: flex; gap: 6px; align-items: center; padding: 8px 10px; background: #17171a; border-top: 1px solid #2c2c32; }
+  footer .sp { flex: 1; color: #6f6f78; font-size: 11px; }
+  .empty { padding: 28px; text-align: center; color: #6f6f78; }
+</style>
+</head>
+<body>
+  <header>
+    <input id="q" type="search" placeholder="Search title or notes">
+    <select id="min" title="Minimum rating"></select>
+    <select id="sort">
+      <option value="rating">Top rated</option>
+      <option value="recent">Recently edited</option>
+    </select>
+  </header>
+  <div id="list"></div>
+  <footer>
+    <span class="sp" id="stats"></span>
+    <button id="tab" title="Open in a full tab (use this for Import)">Full tab</button>
+    <button id="csv">CSV</button>
+    <button id="exp">Export</button>
+    <button id="imp">Import</button>
+    <input id="file" type="file" accept="application/json,.json" hidden>
+  </footer>
+  <script src="popup.js"></script>
+</body>
+</html>
